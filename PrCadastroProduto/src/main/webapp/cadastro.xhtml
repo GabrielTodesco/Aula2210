@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+ <meta charset="UTF-8" />
+</h:head>
+<h:body>
+
+<h:form id="formProduto">	  
+   <p:panelGrid columns="2">
+	  <p:outputLabel value="Código"/>
+	  <p:inputText value="#{produtoMB.produto.codigo}"/>
+	  
+	  <p:outputLabel value="Descrição"/>
+	  <p:inputText value="#{produtoMB.produto.descricao}"/>
+	  
+	  <p:outputLabel value="Preço"/>
+	  <p:inputText value="#{produtoMB.produto.preco}"/>
+  </p:panelGrid>
+  
+  <p:commandButton value="Salvar"
+  	               action="#{produtoMB.salvar()}"
+  	               update=":formProduto"
+  />
+  
+  <p:dataTable value="#{produtoMB.produtos}" var="aux">
+     <p:column headerText="Código">
+     	<p:outputLabel value="#{aux.codigo}"></p:outputLabel>
+     </p:column>
+     <p:column headerText="Descrição">
+     	<p:outputLabel value="#{aux.descricao}"></p:outputLabel>
+     </p:column>
+     <p:column headerText="Preço">
+     	<p:outputLabel value="#{aux.preco}"></p:outputLabel>
+     </p:column>
+  </p:dataTable>
+  
+</h:form>
+
+
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
